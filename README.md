@@ -159,3 +159,4 @@ The included demo application provides:
 - Status messages and error handling
 
 Open `webapp/index.html` to see the demo in action.
+Or https://tabaothanh.github.io/SAPUI5-QRGenerator/webapp/index.html
