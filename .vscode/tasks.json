@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start UI5 Server",
+            "type": "shell",
+            "command": "npm",
+            "args": ["start"],
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^Server started, use Ctrl\\+C to stop$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^.*starting server.*$",
+                    "endsPattern": "^.*Server started.*$"
+                }
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}

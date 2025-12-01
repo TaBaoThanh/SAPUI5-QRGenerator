@@ -1,0 +1,127 @@
+<mvc:View
+	controllerName="qrgen.controller.App"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:unified="sap.ui.unified"
+	xmlns:qr="qrgen.control"
+	displayBlock="true">
+    <App busyIndicatorDelay="0">
+        <Page title="SAPUI5 QR Code Generator">
+            <content>
+                <HBox>
+                     <l:VerticalLayout class="sapUiContentPadding">
+                        <l:content>
+                            <!-- Input Form -->
+                            <f:SimpleForm
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                                labelSpanXL="3"
+                                labelSpanL="3"
+                                labelSpanM="3"
+                                labelSpanS="12"
+                                adjustLabelSpan="false"
+                                emptySpanXL="4"
+                                emptySpanL="4"
+                                emptySpanM="4"
+                                emptySpanS="0"
+                                columnsXL="1"
+                                columnsL="1"
+                                columnsM="1"
+                                singleContainerFullSize="false">
+                                <f:content>
+                                    <Label text="Text to Encode" required="true"/>
+                                    <TextArea
+                                        value="{/text}"
+                                        rows="3"
+                                        width="100%"
+                                        placeholder="Enter text to generate QR code"/>
+                                    
+                                    <Label text="Width (px)"/>
+                                    <Input
+                                        value="{/width}"
+                                        type="Number"
+                                        description="pixels"/>
+                                    
+                                    <Label text="Height (px)"/>
+                                    <Input
+                                        value="{/height}"
+                                        type="Number"
+                                        description="pixels"/>
+                                    
+                                    <Label text="Error Correction"/>
+                                    <Select
+                                        selectedKey="{/errorCorrectionLevel}"
+                                        width="100%">
+                                        <items>
+                                            <core:Item key="L" text="L (7% recovery)"/>
+                                            <core:Item key="M" text="M (15% recovery)"/>
+                                            <core:Item key="Q" text="Q (25% recovery)"/>
+                                            <core:Item key="H" text="H (30% recovery)"/>
+                                        </items>
+                                    </Select>
+                                    
+                                    <Label text="Dark Color"/>
+                                    <Input
+                                        value="{/colorDark}"
+                                        placeholder="#000000"
+                                        showValueHelp="true"
+                                        valueHelpRequest=".onColorPickerOpen"
+                                        valueHelpIconSrc="sap-icon://palette"/>
+                                    
+                                    <Label text="Light Color"/>
+                                    <Input
+                                        value="{/colorLight}"
+                                        placeholder="#ffffff"
+                                        showValueHelp="true"
+                                        valueHelpRequest=".onColorPickerOpen"
+                                        valueHelpIconSrc="sap-icon://palette"/>
+                                </f:content>
+                            </f:SimpleForm>
+                            <!-- Message Strip for Status -->
+                            <MessageStrip
+                                id="messageStrip"
+                                visible="false"
+                                showIcon="true"
+                                showCloseButton="true"/>
+                        </l:content>
+                    </l:VerticalLayout>
+                    <!-- QR Code Display -->
+                    <VBox alignItems="Center" width="100%" class="sapUiMediumMarginTop">
+                        <qr:QRGenerator
+                            id="qrGenerator"
+                            text="{/text}"
+                            width="{/width}"
+                            height="{/height}"
+                            errorCorrectionLevel="{/errorCorrectionLevel}"
+                            colorDark="{/colorDark}"
+                            colorLight="{/colorLight}"
+                            generated=".onQRGenerated"
+                            error=".onQRError"
+                            press=".onQRPress"/>
+                         <!-- Action Buttons -->
+                        <Toolbar id="actionToolbar">
+                            <!-- <Button
+                                text="Generate QR Code"
+                                type="Emphasized"
+                                icon="sap-icon://create"
+                                press=".onGenerateQR"/> -->
+                            <Button
+                                id="downloadButton"
+                                text="Download"
+                                icon="sap-icon://download"
+                                press=".onDownloadQR"/>
+                            <Button
+                                id="clearButton"
+                                text="Clear"
+                                icon="sap-icon://clear-all"
+                                press=".onClearText"/>
+                        </Toolbar>
+                    </VBox>
+                </HBox>
+            </content>
+        </Page>
+    </App>
+</mvc:View>

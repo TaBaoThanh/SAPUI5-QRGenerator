@@ -1,0 +1,19 @@
+/* QR Generator Control Styles */
+.sapUiQRGenerator {
+	display: inline-block;
+	padding: 10px;
+	background-color: #ffffff;
+	border: 1px solid #d9d9d9;
+	border-radius: 4px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sapUiQRGenerator canvas {
+	display: block;
+	border-radius: 4px;
+}
+
+/* Additional spacing */
+.sapUiContentPadding {
+	padding: 1rem;
+}

@@ -1,0 +1,34 @@
+{
+  "name": "sapui5-qr-generator",
+  "version": "1.0.0",
+  "description": "SAPUI5 QR Code Generator Control",
+  "scripts": {
+    "start": "ui5 serve --open webapp/index.html",
+    "build": "ui5 build --all",
+    "serve": "ui5 serve"
+  },
+  "keywords": [
+    "sapui5",
+    "qr-code",
+    "generator",
+    "ui5"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0",
+    "ui5-middleware-simpleproxy": "^3.5.2"
+  },
+  "ui5": {
+    "dependencies": [
+      "@openui5/sap.m",
+      "@openui5/sap.ui.core",
+      "@openui5/sap.ui.layout",
+      "@openui5/themelib_sap_horizon"
+    ]
+  },
+  "note": "You can run this app without installing dependencies! Just use Python: python -m http.server 8000",
+  "dependencies": {
+    "@sap-ux/ui5-proxy-middleware": "^1.6.6"
+  }
+}
